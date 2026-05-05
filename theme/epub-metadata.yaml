@@ -1,0 +1,10 @@
+---
+title: "急不可耐程序员的 Bevy 与 Rust 指南"
+subtitle: "从零开始构建 2D 游戏"
+author: "Febin John James"
+language: zh-CN
+rights: "© 2026 AIBodh. 中文翻译仅供学习参考。"
+description: "学习使用 Bevy 和 Rust 进行游戏开发"
+cover-image: "src/assets/book_assets/book-cover-bevy-rust.png"
+...
+

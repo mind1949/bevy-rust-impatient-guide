@@ -1,0 +1,22 @@
+[book]
+title = "急不可耐程序员的 Bevy 与 Rust 指南"
+authors = ["Febin John James"]
+description = "学习使用 Bevy 和 Rust 进行游戏开发，从零构建 2D 游戏"
+language = "zh-CN"
+src = "src"
+
+[build]
+build-dir = "build/book"
+
+[output.html]
+no-section-label = true
+default-theme = "catppuccin-latte"
+preferred-dark-theme = "catppuccin-mocha"
+git-repository-url = "https://github.com/jamesfebin/ImpatientProgrammerBevyRust"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/jamesfebin/ImpatientProgrammerBevyRust/edit/main/{path}"
+additional-css = ["theme/custom.css", "theme/catppuccin.css"]
+additional-js = ["theme/custom.js"]
+
+[rust]
+edition = "2021"

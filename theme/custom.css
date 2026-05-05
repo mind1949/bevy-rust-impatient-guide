@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+
+/* Floating Page TOC (top-right) */
+#page-toc-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+    opacity: 0.85;
+}
+#page-toc-toggle:hover {
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+#page-toc-toggle .icon-list { display: block; }
+#page-toc-toggle .icon-close { display: none; }
+#page-toc-toggle.open .icon-list { display: none; }
+#page-toc-toggle.open .icon-close { display: block; }
+
+#page-toc-panel {
+    position: fixed;
+    top: 58px;
+    right: 12px;
+    z-index: 999;
+    width: 280px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: var(--bg);
+    border: 1px solid var(--searchbar-border-color);
+    border-radius: 8px;
+    padding: 12px 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    display: none;
+    font-size: 13px;
+}
+#page-toc-panel.open { display: block; }
+
+#page-toc-panel a {
+    display: block;
+    padding: 4px 16px;
+    color: var(--fg);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.15s;
+    word-break: break-word;
+}
+#page-toc-panel a:hover {
+    background: var(--quote-bg);
+    border-left-color: var(--links);
+}
+#page-toc-panel a.toc-h2 { font-weight: 500; }
+#page-toc-panel a.toc-h3 { padding-left: 32px; font-size: 12px; opacity: 0.85; }
+#page-toc-panel a.toc-active {
+    border-left-color: var(--links);
+    background: var(--quote-bg);
+    color: var(--links);
+}
+
+/* Narrower content width to match original (8/12 columns) */
+main {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+/* Body text: darker gray like original #2d3748 */
+.content {
+    color: var(--fg);
+}
+
+/* Images: centered, contained, matching original fixed height */
+main img {
+    display: block;
+    margin: 1.5rem auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Comic-style images: slightly smaller, like original 500px max */
+img[alt*="漫画"],
+img[alt*="Comic"],
+img[alt*="演示"],
+img[alt*="效果"],
+img[alt*="精灵"] {
+    max-height: 500px;
+    width: auto;
+}
+main img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Comic panels: centered with spacing, matching original */
+img[alt*="漫画"],
+img[alt*="Comic"] {
+    margin: 30px auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* D2 diagrams: centered with monospace font for SVG text */
+img[alt*="D2"],
+img[alt*="图示"],
+img[alt*="图表"],
+img[alt*="图解"],
+img[alt*="架构"] {
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+    font-family: 'JetBrains Mono', 'Menlo', 'Monaco', monospace;
+}
+
+/* Chapter cover images after H1 */
+main h1 + p > img,
+main h1 + img {
+    max-height: 500px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Code blocks: match original rounded + border style */
+pre {
+    border-radius: 8px;
+    border: 1px solid var(--table-border-color);
+    padding: 12px 16px;
+    background: var(--quote-bg);
+}
+code {
+    font-family: 'JetBrains Mono', 'Menlo', 'Monaco', monospace;
+    border-radius: 4px;
+}
+
+/* Inline code: match original purple highlight */
+.content code:not(pre code) {
+    background-color: var(--quote-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #805ad5;
+}
+
+/* Callout / info boxes: matching original gray card with left border */
+.content blockquote {
+    margin: 20px 0;
+    padding: 15px 20px;
+    background-color: var(--quote-bg);
+    border-radius: 8px;
+    border-left: 4px solid var(--quote-border);
+}
+.content blockquote p {
+    margin: 0.5em 0;
+}
+.content blockquote p:first-child {
+    margin-top: 0;
+}
+.content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+table th, table td {
+    border: 1px solid var(--table-border-color);
+    padding: 8px 12px;
+}
+table th {
+    font-weight: 600;
+}
+
+/* Section spacing */
+main h2 {
+    margin-top: 2em;
+    border-bottom: none;
+}
+main h3 {
+    margin-top: 1.5em;
+}
+
+/* Source code link at chapter end */
+.content h2:last-of-type {
+    margin-top: 2em;
+    font-size: 1.1em;
+}
